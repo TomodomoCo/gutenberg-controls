@@ -1,15 +1,9 @@
-/**
- * External dependencies
- */
+// External dependencies
 import { isEmpty } from 'lodash';
 import classnames from 'classnames';
 import { RadioControl } from "@wordpress/components";
 
-/**
- * Internal dependencies
- */
-import './editor.scss';
-
+// Control
 function RadioImageControl( { label, className, selected, help, onChange, options = [] } ) {
   options = options.map( function ( option ) {
     return {
