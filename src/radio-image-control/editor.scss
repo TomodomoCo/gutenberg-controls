@@ -1,11 +1,11 @@
-.components-block-design-control {
+.tomodomo-radio-image-control {
 	.components-radio-control__option {
 		display: flex;
 		margin-top: 0.75em;
 	}
 }
 
-	.components-block-design-control__option {
+	.tomodomo-radio-image-control__option {
 		border: 1px solid #CCC;
 		border-radius: 4px;
 		overflow: hidden;
@@ -15,18 +15,19 @@
 
 		background: #DDD;
 
+		input[type="checkbox"]:checked + label > &,
 		input[type="radio"]:checked + label > & {
-			background: #0081C8;
 			color: white;
+			background: #0081C8; // @todo: these colours should inherit from the active theme
 			border-color: #0061A5;
 		}
 	}
 
-	.components-block-design-control__text {
+	.tomodomo-radio-image-control__text {
 		display: block;
 		padding: 0.4em 0.5em;
 	}
 
-	.components-block-design-control__image {
+	.tomodomo-radio-image-control__image {
 		line-height: 0;
 	}

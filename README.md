@@ -1,10 +1,47 @@
-# BlockDesignControl
+# Tomodomo Gutenberg Controls
 
-A simple custom Inspector control for WordPress' Gutenberg editor, making it easy to select a design from a set of visual previews.
+This repo contains a selection of custom controls for the WordPress Gutenberg editor.
 
-## Usage
+## Controls
 
-tk
+### RadioImageControl
+
+This control adds a visual element to the standard Gutenberg `RadioControl`, allowing you to display a preview image with each item in the picker:
+
+![image-radio-image-control](https://user-images.githubusercontent.com/1231306/43051364-dfdad69c-8de6-11e8-8da2-cecf6c4532ac.png)
+
+#### Usage
+
+The control has most of the same properties as the standard Gutenberg `RadioControl`, with a slight variation in the addition of the `preview` parameter inside each option.
+
+```jsx
+import { RadioImageControl } from "@tomodomo/gutenberg-controls";
+
+<RadioImageControl
+  label="Text Label"
+  className="optional-custom-class-names"
+  options={[
+    {
+      value: "option-1",
+      label: "Option 1",
+      preview: "/path/to/preview-image-1.png"
+    },
+    {
+      value: "option-2",
+      label: "Option 2",
+      preview: "/path/to/preview-image-2.png"
+    },
+    {
+      value: "option-3",
+      label: "Option 3",
+      preview: "/path/to/preview-image-3.png"
+    },
+  ]}
+  selected={currentlySelectedOption}
+  help="Optional help text."
+  onChange={onChangeCallback}
+/>
+```
 
 ## About Tomodomo
 

@@ -1,0 +1,33 @@
+{
+  "name": "@tomodomo/gutenberg-controls",
+  "version": "1.0.0",
+  "description": "Custom controls for the Gutenberg editor for WordPress",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TomodomoCo/gutenberg-controls.git"
+  },
+  "keywords": [
+    "tomodomo",
+    "gutenberg",
+    "wordpress"
+  ],
+  "author": {
+    "name": "Tomodomo",
+    "email": "hello@tomodomo.co"
+  },
+  "contributors": [
+    {
+      "name": "Chris Van Patten"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/TomodomoCo/gutenberg-controls/issues"
+  },
+  "homepage": "https://github.com/TomodomoCo/gutenberg-controls#readme",
+  "dependencies": {
+    "@wordpress/components": "^1.0.1",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.10"
+  }
+}
