@@ -50,6 +50,7 @@
     "webpack-rtl-plugin": "^1.6.0"
   },
   "scripts": {
+    "prepare": "npm run build",
     "build": "cross-env BABEL_ENV=default webpack"
   },
   "babel": {
