@@ -30,5 +30,8 @@
     "@wordpress/components": "^1.0.1",
     "classnames": "^2.2.6",
     "lodash": "^4.17.10"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
