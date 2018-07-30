@@ -28,14 +28,8 @@ const extractConfig = {
 
 // Externals
 const externals = {
-  react: {
-    commonjs: 'react',
-    commonjs2: 'react',
-  },
-  lodash: {
-    commonjs: 'lodash',
-    commonjs2: 'lodash',
-  }
+  react: "react",
+  lodash: "lodash",
 };
 
 // WordPress dependences
