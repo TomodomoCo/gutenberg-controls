@@ -28,8 +28,14 @@ const extractConfig = {
 
 // Externals
 const externals = {
-  react: "React",
-  lodash: "lodash"
+  react: {
+    commonjs: 'react',
+    commonjs2: 'react',
+  },
+  lodash: {
+    commonjs: 'lodash',
+    commonjs2: 'lodash',
+  }
 };
 
 // WordPress dependences
@@ -39,7 +45,9 @@ const wpDependencies = [
 
 wpDependencies.forEach(wpDependency => {
   externals["@wordpress/" + wpDependency] = {
-    this: ["wp", wpDependency]
+    this: ["wp", wpDependency],
+    commonjs: ["wp", wpDependency],
+    commonjs2: ["wp", wpDependency]
   };
 });
 
@@ -51,7 +59,7 @@ const config = {
     filename: "build/index.js",
     path: __dirname,
     library: ["gutenberg-blocks", "[name]"],
-    libraryTarget: "this"
+    libraryTarget: "umd"
   },
   resolve: {
     modules: [__dirname, "node_modules"]
