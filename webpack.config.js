@@ -46,8 +46,6 @@ const wpDependencies = [
 wpDependencies.forEach(wpDependency => {
   externals["@wordpress/" + wpDependency] = {
     this: ["wp", wpDependency],
-    commonjs: ["wp", wpDependency],
-    commonjs2: ["wp", wpDependency]
   };
 });
 
