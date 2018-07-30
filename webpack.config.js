@@ -1,81 +1,76 @@
 /**
  * External Dependencies
  */
-const webpack = require("webpack");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-const ExtractTextPlugin  = require("extract-text-webpack-plugin");
+const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const ExtractTextPlugin  = require('extract-text-webpack-plugin')
 
 // CSS loader
 const cssExtractTextPlugin = new ExtractTextPlugin({
-  filename: "./build/style.css"
-});
+  filename: './build/style.css'
+})
 
 // Configuration for the ExtractTextPlugin.
 const extractConfig = {
   use: [
-    { loader: "raw-loader" },
+    { loader: 'raw-loader' },
     {
-      loader: "postcss-loader",
+      loader: 'postcss-loader',
       options: {
-        plugins: [require("autoprefixer")]
+        plugins: [require('autoprefixer')]
       }
     },
     {
-      loader: "sass-loader"
-    }
-  ]
-};
-
-// Externals
-const externals = {
-  react: "react",
-  lodash: "lodash",
-};
-
-// WordPress dependences
-const wpDependencies = [
-  "components",
-];
-
-wpDependencies.forEach(wpDependency => {
-  externals["@wordpress/" + wpDependency] = {
-    this: ["wp", wpDependency],
-  };
-});
+      loader: 'sass-loader'
+    },
+  ],
+}
 
 // Webpack config
 const config = {
-  entry: "./src/index.js",
-  externals,
+  entry: './src/index.js',
+  externals: {
+    'react': {
+      commonjs: 'react',
+      commonjs2: 'react',
+    },
+    'lodash': {
+      commonjs: 'lodash',
+      commonjs2: 'lodash',
+    },
+    '@wordpress/components': {
+      global: ['wp', 'components'],
+    },
+  },
   output: {
-    filename: "build/index.js",
+    filename: 'build/index.js',
     path: __dirname,
-    library: ["gutenberg-blocks", "[name]"],
-    libraryTarget: "umd"
+    library: 'gutenbergControls',
+    libraryTarget: 'umd',
   },
   resolve: {
-    modules: [__dirname, "node_modules"]
+    modules: [__dirname, 'node_modules'],
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: "babel-loader"
+        use: 'babel-loader',
       },
       {
         test: /style\.s?css$/,
-        use: cssExtractTextPlugin.extract(extractConfig)
-      }
-    ]
+        use: cssExtractTextPlugin.extract(extractConfig),
+      },
+    ],
   },
   plugins: [
-    new CleanWebpackPlugin(["build"]),
+    new CleanWebpackPlugin(['build']),
     cssExtractTextPlugin,
   ],
   stats: {
-    children: false
-  }
-};
+    children: false,
+  },
+}
 
-module.exports = config;
+module.exports = config
