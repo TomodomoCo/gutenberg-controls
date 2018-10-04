@@ -1,7 +1,7 @@
 /**
  * External Dependencies
  */
-const webpack = require('webpack')
+const Webpack            = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ExtractTextPlugin  = require('extract-text-webpack-plugin')
 
@@ -30,14 +30,8 @@ const extractConfig = {
 const config = {
   entry: './src/index.js',
   externals: {
-    'react': {
-      commonjs: 'react',
-      commonjs2: 'react',
-    },
-    'lodash': {
-      commonjs: 'lodash',
-      commonjs2: 'lodash',
-    },
+    'react':  'React',
+    'lodash': 'lodash',
     '@wordpress/components': {
       global: ['wp', 'components'],
     },
@@ -45,11 +39,6 @@ const config = {
   output: {
     filename: 'build/index.js',
     path: __dirname,
-    library: 'gutenbergControls',
-    libraryTarget: 'umd',
-  },
-  resolve: {
-    modules: [__dirname, 'node_modules'],
   },
   module: {
     rules: [
@@ -70,6 +59,7 @@ const config = {
   ],
   stats: {
     children: false,
+    colors: true,
   },
 }
 
